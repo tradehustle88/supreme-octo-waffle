@@ -1,0 +1,26 @@
+"default": "Built for the Trade. Backed by Hustle."{% schema %}
+{
+  "name": "Hero Banner",
+  "tag": "section",
+  "class": "hero-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Welcome to Trade Hustle"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Built for the Trade. Backed by Hustle."
+    }
+  ]
+}
+{% endschema %}
+
+<div class="hero-banner">
+  <h1>{{ section.settings.headline }}</h1>
+  <p>{{ section.settings.subtext }}</p>
+</div>
