@@ -1,14 +1,39 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "hero-banner": {
-      "type": "hero-banner"
+    "section_hero_TnybQT": {
+      "type": "section-hero",
+      "name": "Hero Banner",
+      "settings": {}
     },
-    "main": {
-      "type": "main"
+    "section_optin_B78bLE": {
+      "type": "section-optin",
+      "name": "Email Opt-In",
+      "settings": {}
+    },
+    "section_social_proof_CijnYg": {
+      "type": "section-social-proof",
+      "name": "Social Proof",
+      "settings": {}
+    },
+    "section_urgency_banner_M79qgp": {
+      "type": "section-urgency-banner",
+      "name": "Urgency Banner",
+      "settings": {}
     }
   },
   "order": [
-    "hero-banner",
-    "main"
+    "section_hero_TnybQT",
+    "section_optin_B78bLE",
+    "section_social_proof_CijnYg",
+    "section_urgency_banner_M79qgp"
   ]
 }
