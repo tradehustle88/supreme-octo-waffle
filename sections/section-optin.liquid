@@ -1,6 +1,20 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Email Opt-In",
+  "tag": "section",
+  "class": "tradehustle-optin",
+  "settings": [],
+  "presets": [{
+    "name": "Email Opt-In"
+  }]
+}
 {% endschema %}
+
+<section style="padding: 2rem; background: #111; color: white; text-align: center;">
+  <h2>Stay in the Loop</h2>
+  <p>Get early drops, cheat codes, and free game from the Hustle Circle.</p>
+  <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8">
+    <input type="email" name="contact[email]" placeholder="Enter your email" style="padding: 0.5rem; width: 80%; max-width: 400px; margin-top: 1rem;" required>
+    <button type="submit" style="padding: 0.6rem 1rem; margin-top: 1rem; background: #FFF200; border: none;">Join Now</button>
+  </form>
+</section>
