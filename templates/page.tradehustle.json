@@ -9,15 +9,27 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
+    "hero": {
+      "type": "section-hero",
+      "settings": {}
+    },
+    "optin": {
+      "type": "section-optin",
+      "settings": {}
+    },
+    "proof": {
+      "type": "section-social-proof",
+      "settings": {}
+    },
+    "urgency": {
+      "type": "section-urgency-banner",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "hero",
+    "optin",
+    "proof",
+    "urgency"
   ]
 }
