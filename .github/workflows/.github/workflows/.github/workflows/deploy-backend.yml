@@ -1,0 +1,57 @@
+name: 🚀 Deploy Frontend to Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'frontend/**'
+
+env:
+  PROJECT_ID: tradehustle-frontend       # your actual GCP project ID
+  REGION: us-central1                    # You chose this earlier
+  SERVICE_NAME: tradehustle-frontend     # Cloud Run service name
+  IMAGE_NAME: frontend-app               # Your Docker image name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      GCR_IMAGE_TAG: sha-${{ github.sha }}
+
+    steps:
+      - name: ⬇️ Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 🔐 Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS_FRONTEND }}
+
+      - name: 🛠️ Set up gcloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+
+      - name: 🏗️ Build & Push Docker Image
+        run: |
+          gcloud auth configure-docker
+          docker build -t gcr.io/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:${{ env.GCR_IMAGE_TAG }} frontend
+          docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:${{ env.GCR_IMAGE_TAG }}
+        id: docker_build_push
+        env:
+          DOCKER_BUILDKIT: 1
+
+      - name: 🚀 Deploy to Cloud Run
+        run: |
+          gcloud run deploy ${{ env.SERVICE_NAME }} \
+            --image gcr.io/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:${{ env.GCR_IMAGE_TAG }} \
+            --region ${{ env.REGION }} \
+            --platform managed \
+            --allow-unauthenticated \
+            --min-instances=0 \
+            --max-instances=1 \
+            --cpu=1 \
+            --memory=256Mi \
+            --port=8080
+        id: cloud_run_deploy
