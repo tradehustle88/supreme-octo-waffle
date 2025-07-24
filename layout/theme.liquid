@@ -5,7 +5,34 @@
     <title>{{ page_title }}</title>
     {{ content_for_header }}
   </head>
-  <body>
-    {{ content_for_layout }}
-  </body>
+  <!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ page_title }}</title>
+  {{ content_for_header }}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=EB+Garamond:wght@700&display=swap" rel="stylesheet">
+  </head>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ page_title }}</title>
+  {{ content_for_header }}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=EB+Garamond:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <div class="top-header">
+    <h1>WELCOME TO THE GRIND</h1>
+  </div>
+  {{ content_for_layout }}
+</body>
 </html>
